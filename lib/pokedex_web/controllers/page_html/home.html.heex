@@ -1,0 +1,44 @@
+<div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
+  <div class="mx-auto max-w-xl lg:mx-0">
+    <h1 class="text-[2rem] mt-4 font-semibold leading-10 tracking-tighter text-zinc-900">
+      Pokedéx
+    </h1>
+    <p class="mt-4 text-base leading-7 text-zinc-600 mb-5">
+      Get the name of the Pokémon of your choice from its ID in the Pokédex.
+    </p>
+    <div class="flex">
+      <div class="w-full sm:w-auto">
+        <form>
+          <label for="pokedex-id" class="block text-sm font-medium leading-6 text-gray-900">
+            Pokédex ID
+          </label>
+          <div class="relative mt-2 rounded-md shadow-sm">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <span class="text-gray-500 sm:text-sm">ID</span>
+            </div>
+            <input
+              type="text"
+              name="id"
+              id="pokedex-id"
+              class="block w-full rounded-md border-0 py-1.5 pl-9 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              value={@id}
+            />
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <button
+                type="submit"
+                class="flex w-full justify-center rounded-r-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%= if @id != nil and @name != nil do %>
+      <p class="mt-5 font-semibold">
+        The Pokémon with ID <%= @id %> is called <%= String.capitalize(@name) %>
+      </p>
+    <% end %>
+  </div>
+</div>
